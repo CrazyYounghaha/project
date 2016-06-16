@@ -1,0 +1,21 @@
+.wz h3{width:300px;height:30px;overflow:hidden;line-height:30px;font-size:17px;font-weight:500;padding-left:5px;color:#325EBD;}
+.wz h3 a{color:#D3535D;}
+.wz h3:hover{padding-left:20px; transition: all 0.5s;-webkit-transition: all 0.5s; -moz-transition: all 0.5s; -o-transition: all 0.5s;}
+.wz dl{width:730px;margin-top:3px;}
+.wz dl dt{float:left;width:204px;height:127px;margin-left:5px;display:block;border:1px solid #ccc;}
+.wz dl dt img{padding:2px;}
+.wz dl dd{float:left;width:505px;overflow:hidden;margin-left:5px;}
+.wz dl dd .dd_text_1{position:relative;height:80px;display:block;overflow:hidden;}
+.wz dl dd .dd_text_2{line-height:30px;margin-top:10px;}
+.wz dl dd .dd_text_2 span{padding-left:15px;}
+.wz dl dd .dd_text_2 .author{display:block;width:120px;height:30px;
+    background:url("../images/tx.jpg") 5px 7px no-repeat;padding-left:25px;margin-left:20px;}
+.wz dl dd .dd_text_2 .sj{display:block;width:120px;height:30px;
+    background:url("../images/sj.jpg") 5px 7px no-repeat;padding-left:25px;}
+.wz dl dd .dd_text_2 .fl{display:block;width:300px;heigt:30px;}
+.wz dl dd .dd_text_2 .fl a{color:#1D1718;}
+.wz dl dd .dd_text_2 .yd{display:block;width:110px;height:30px;text-align:center;margin-top:3px;}
+.wz dl dd .dd_text_2 .yd a{color:#F55522;display:block;width:80px;height:22px;line-height:22px;
+    text-align:center;padddding:2px 5px;border:1px solid #AC9696;border-radius:2px;}
+.wz dl dd .dd_text_2 .yd a:hover{color:#f36;}
+.clear{clear:both;}
