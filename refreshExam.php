@@ -6,9 +6,10 @@
  * Time: 16:05
  */
 session_start();
+
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     include_once("mysql_connect.php");
-    if(isset($_SESSION['student_id'])) {
+    if(isset($_SESSION['user_id'])) {
         //$userid = $_SESSION['student_id'];
         //$student = $_SESSION['name'];
         $sql = "SELECT * FROM niit_exam";
@@ -17,8 +18,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         while ($row = mysqli_fetch_array($result)) {
             $list .= "
         <div class=\"row info-content\">
-                        <h4>广电总局发布TVOS2.0 华为阿里参与研发</h4>
-                        <p>TVOS2.0是在TVOS1.0与华为MediaOS及阿里巴巴YunOS融合的基础上，打造的新一代智能电视操作系统。华为主要承担开发工作，内置的电视购物商城由阿里方面负责。</p>
+                        <h4>".$row[1]."</h4>
+                        <p>".$row[2]."</p>
                         <a href=\"examing.html\" class=\"btn btn-danger btn-md pull-right\" role=\"button\">Start Test</a>
                 </div>";
 
@@ -40,8 +41,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             $examid = $row[0];
             $list .= "
                 <div class=\"row info-content\">
-                        <h4>广电总局发布TVOS2.0 华为阿里参与研发</h4>
-                        <p>TVOS2.0是在TVOS1.0与华为MediaOS及阿里巴巴YunOS融合的基础上，打造的新一代智能电视操作系统。华为主要承担开发工作，内置的电视购物商城由阿里方面负责。</p>
+                        <h4>还没登录能看到的考试内容</h4>
+                        <p>小婊砸一定是还没有登录。</p>
                         <a href=\"confirmExam.html#".$examid."\" class=\"btn btn-danger btn-md pull-right\" role=\"button\" id=\"".$examid.
                         "\">Start Test</a>
                 </div>";

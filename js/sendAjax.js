@@ -52,37 +52,57 @@ $(function() {
 function logoutAjax()
 {
     //alert("logout");
-    $.ajax({type:"get",url:"username.php",dataType:"json",data:{operate:"logout"},success:function(result){
-        $("#login,#signup").css("display","inline");
-        $("#nowUser").css("display","none");
-        $("#username").html("");
-        history.go(0);
-    }});
+    $.ajax({
+        type: "get",
+        url: "username.php",
+        dataType: "json",
+        data: { operate:"logout" },
+        success:function(result){
+            $("#login,#signup").css("display","inline");
+            $("#nowUser").css("display","none");
+            $("#username").html("");
+            history.go(0);
+        }
+    });
 }
 
 function refreshExamination()
 {
-    $.ajax({type:"POST",url:"refreshExam.php",dataType:"html",data:{operate:"exam"},success:function(result){
-       $("#examlist").html(result);
-    }});
+    $.ajax({
+        type:"POST",
+        url:"refreshExam.php",
+        dataType:"html",
+        data:{operate:"exam"},
+        success:function(result){
+            $("#examlist").html(result);
+        }
+    });
 }
 refreshExamination();
 
 function startExam()
 {
-    var thisurl = window.location.href.split("#");
-    var e_id=thisurl[thisurl.length-1];
-    $.ajax({type:"GET",url:"givePaper.php",dataType:"json",data:{exam_id:e_id},success:function(result){
-        //$("#examlist").html(result);
-        if(!result.islogin)
-        {
-            alert("Please login firstly");
-            var url = "login/login.php";
-            location.href=url;
+    var thisurl = window.location.href.split( "#");
+    var e_id=thisurl[thisurl.length-1];//取最后一个参数考试编号
+    $.ajax({
+        type:"GET",
+        url:"givePaper.php",
+        dataType:"json",
+        data:{exam_id:e_id},
+        success:function(result){
+            //$("#examlist").html(result);
+            if(!result.islogin)
+            {
+                alert("Please login firstly");
+                var url = "login/login.php";
+                location.href=url;
+            }else{
+                var url = "examing.html";
+                location.href=url;
+            }
+        },
+        error:function(msg){
+            alert("failed");
         }
-
-
-    },error:function(msg){
-        alert("failed");
-    }});
+    });
 }

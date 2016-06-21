@@ -7,7 +7,7 @@
  */
     session_start();
     $info = array();
-    $info["islogin"] = isset($_SESSION["student_id"])?true:false;
+    $info["islogin"] = isset($_SESSION["user_id"]) ? true : false;
 
     echo json_encode($info);
 

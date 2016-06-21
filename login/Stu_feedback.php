@@ -98,7 +98,7 @@ session_start();
                         <li><a href="Student_page.php">Home</a></li>
                         <li><a href="resume.php">Online Resume</a></li>
                         <li><a href="#" class="active">Feedback</a></li>
-                        <li><a href="login.php">Logout</a></li>
+                        <li><a href="../examination.php">Exam</a></li>
                     </ul>
                 </nav>
             </div>

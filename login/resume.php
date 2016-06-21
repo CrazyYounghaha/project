@@ -111,7 +111,7 @@ session_start();
                         <li><a href="Student_page.php">Home</a></li>
                         <li><a href="#" class="active">Online Resume</a></li>
                         <li><a href="Stu_feedback.php">Feedback</a></li>
-                        <li><a href="login.php">Logout</a></li>
+                        <li><a href="../examination.php">Exam</a></li>
                     </ul>
                 </nav>
             </div>
