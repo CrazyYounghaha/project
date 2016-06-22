@@ -26,7 +26,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         mysqli_close($con);
         echo $list;
-    }else{
+    }else{//这个就是没有登录为什么要显示考试内容？
+
         /*
         $url = "login/login.php";
         echo "<script language=\"javascript\">";
@@ -46,10 +47,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                         <a href=\"confirmExam.html#".$examid."\" class=\"btn btn-danger btn-md pull-right\" role=\"button\" id=\"".$examid.
                         "\">Start Test</a>
                 </div>";
-
         }
 
-        $event = "<script>
+        $event = "<script type='text/javascript'>
            // window.onload=function(){
                 var examlist = document.getElementById(\"examlist\");
                 var childDiv = examlist.children;
@@ -58,7 +58,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                     var tDiv = childDiv[i];
                     var aObj = tDiv.lastElementChild;
                     aObj.onclick = function(){
-                        alert(\"click\");
+                        alert(\"Confirm Exam\");
                     }
                 }
            // }

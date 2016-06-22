@@ -21,6 +21,11 @@ $(function() {
 $(function() {
     $("#logout").bind("click",logoutAjax);
     $("#confirm_exam").bind("click",startExam);
+
+    $(".course").bind("click",courseLogin);
+
+    //$("#sign").bind("click", confirmAttendance);
+    //$("#sign").bind("click",confirmAttendance);
     //$("#nav_exam").bind("click", function () {
     //    alert("click");
     //});
@@ -41,13 +46,68 @@ $(function() {
                 $("#login,#signup").css("display","inline");
                 $("#nowUser").css("display","none");
                 $("#username").html("");
-            }}
+            }
+        },
+        error: function (e) {
+                alert("error");
+                console.log(e);
+        }
+    });
+    //$.ajax({
+    //    type: "get",
+    //    url: "attendance_add.php",
+    //    dataType: "json",
+    //    success: function(result){
+    //
+    //    }
+    //})
+});
+
+function courseLogin(){
+    $.ajax({
+        type:"post",
+        url:"username.php",
+        dataType:"json",
+        success:function(result) {
+            var username = result.name;
+            if(username != "")
+            {
+                $("#login,#signup").css("display","none");
+                $("#nowUser").css("display","inline");
+                $("#username").html(username);
+            }
+            else {
+                $("#login,#signup").css("display","inline");
+                $("#nowUser").css("display","none");
+                $("#username").html("");
+            }
+        }
         //error: function (e) {
-        //        alert("error");
-        //        console.log(e);
+        //    alert("error");
+        //    console.log(e);
         //}
     });
-});
+}
+//
+//function confirmAttendance(){
+//    $.ajax({
+//        type: "get",
+//        url: "attendance_add.php",
+//        data: {
+//            c_id: "",
+//            c_name: "",
+//            c_des: ""
+//        },
+//        dataType: "json",
+//        success: function(result){
+//
+//        },
+//        error:function(msg){
+//            alert("failed");
+//            console.log(msg);
+//        }
+//    })
+//}
 
 function logoutAjax()
 {
@@ -106,3 +166,15 @@ function startExam()
         }
     });
 }
+
+function refreshCourse(){
+    $.ajax({
+        type:"POST",
+        url:"refreshCourse.php",
+        dataType:"html",
+        success:function(result){
+            $("#case").html(result);
+        }
+    });
+}
+refreshCourse();
